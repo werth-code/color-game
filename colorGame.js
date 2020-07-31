@@ -19,6 +19,7 @@ easyBtn.addEventListener("click", ()=> {
     colors = generateRandomColors(numSquares)
     pickedColor = randomColor()
     colorDisplay.textContent = pickedColor
+    h1.style.backgroundColor = 'steelblue'
 
     for(let i = 0; i < squares.length; i++) {
         if(colors[i]) squares[i].style.background = colors[i]
@@ -33,6 +34,7 @@ hardBtn.addEventListener("click", () => {
     colors = generateRandomColors(numSquares)
     pickedColor = randomColor()
     colorDisplay.textContent = pickedColor
+    h1.style.backgroundColor = 'steelblue'
 
     for (let i = 0; i < squares.length; i++) {
         squares[i].style.background = colors[i]
@@ -45,8 +47,8 @@ resetGame.addEventListener("click", ()=> {
     pickedColor = randomColor()
     colorDisplay.textContent = pickedColor
     resetGame.textContent = "New Colors"
-    message.textContent = "Guess A Square!"
-    h1.style.backgroundColor = 'rgb(10, 27, 41)'
+    message.textContent = ""
+    h1.style.backgroundColor = 'steelblue'
 
     for (let i = 0; i < squares.length; i++) { //REFACTOR DRY
         let ele = squares[i]

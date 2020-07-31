@@ -1,5 +1,8 @@
 body {
     background-color: rgb(10, 27, 41);
+    margin: 0;
+    font-family: "Montserrat", "Avenir";
+    font-weight: lighter;
 }
 
 .square {
@@ -9,27 +12,65 @@ body {
     float: left;
     margin: 1.66%;
     margin-top: 1.66%;
+    border-radius: 10%;
+    transition: background .2s;
+    -webkit-transition: background .2s;
+    -moz-transition: background .2s;
+} 
+
+#colorDisplay {
+    font-size: 200%;
 }
 
 #navBar {
     text-align: center;
     background-color: white;
     height: 30px;
-    margin-top: 1%;
     color: black;
 }
 
 
 #square-container {
-    margin: 0% auto;
+    margin: 20px auto;
     max-width: 600px;
 }
 
 #h1Title {
     text-align: center;
+    text-transform: uppercase;
     color: white;
+    background: steelblue;
+    margin: 0;
+    line-height: 1.2;
+    padding: 20px 0
 }
 
 .selected {
-    background: blue;
+    color: white;
+    background-color: steelblue;
+}
+
+button {
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    font-weight: 800;
+    color: steelblue;
+    letter-spacing: 1px;
+    font-size: inherit;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+
+}
+
+button:hover {
+    color: white;
+    background-color: steelblue;
+}
+
+#message {
+    display: inline-block;
+    width: 20%;
 }
