@@ -1,9 +1,26 @@
 let colors = generateRandomColors(6) //
 
-const message = document.getElementById('message')
+let message = document.getElementById('message')
 const squares = document.querySelectorAll('.square')
-const pickedColor = randomColor()
-const colorDisplay = document.getElementById('colorDisplay')
+let pickedColor = randomColor()
+let colorDisplay = document.getElementById('colorDisplay')
+const h1 = document.querySelector('h1')
+let resetGame = document.getElementById('newColorsButton')
+
+resetGame.addEventListener("click", ()=> {
+    colors = generateRandomColors(6)
+    pickedColor = randomColor()
+    colorDisplay.textContent = pickedColor
+    resetGame.textContent = "New Colors"
+    message.textContent = "Guess A Square!"
+    h1.style.backgroundColor = 'rgb(10, 27, 41)'
+
+    for (let i = 0; i < squares.length; i++) { //REFACTOR DRY
+        let ele = squares[i]
+
+        ele.style.backgroundColor = colors[i]
+    }
+})
 
 colorDisplay.textContent = pickedColor
 
@@ -13,12 +30,14 @@ for (let i = 0; i < squares.length; i++) {
     ele.style.backgroundColor = colors[i]
     
     ele.addEventListener('click', ()=> {
-       //grab color of picked square 
+        
        let clickedColor = ele.style.backgroundColor
-       //compare to color of pickedColor
+       
        if(clickedColor === pickedColor) {
            message.innerText = "CORRECT!"
+           resetGame.innerText = "Play Again?"
            changeColors(clickedColor)
+           h1.style.backgroundColor = pickedColor
 
        } else { 
            ele.style.backgroundColor = 'rgb(10, 27, 41)'
@@ -39,7 +58,7 @@ function randomColor() {
 }
 
 function rgbColorGen() {
-   return Math.floor(Math.random() * 255)
+   return Math.floor(Math.random() * 256)
 }
 
 function generateRandomColors(num) {
