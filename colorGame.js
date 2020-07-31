@@ -1,14 +1,47 @@
-let colors = generateRandomColors(6) //
+let numSquares = 6
+let colors = generateRandomColors(numSquares) //
 
 let message = document.getElementById('message')
-const squares = document.querySelectorAll('.square')
+let squares = document.querySelectorAll('.square')
 let pickedColor = randomColor()
 let colorDisplay = document.getElementById('colorDisplay')
-const h1 = document.querySelector('h1')
+let h1 = document.querySelector('h1')
 let resetGame = document.getElementById('newColorsButton')
 
+let easyBtn = document.querySelector("#easyBtn")
+let hardBtn = document.querySelector("#hardBtn")
+
+easyBtn.addEventListener("click", ()=> {
+    
+    easyBtn.classList.add("selected")
+    hardBtn.classList.remove("selected")
+    numSquares = 3
+    colors = generateRandomColors(numSquares)
+    pickedColor = randomColor()
+    colorDisplay.textContent = pickedColor
+
+    for(let i = 0; i < squares.length; i++) {
+        if(colors[i]) squares[i].style.background = colors[i]
+        else squares[i].style.display = 'none'
+    }
+})
+
+hardBtn.addEventListener("click", () => {
+    hardBtn.classList.add("selected")
+    easyBtn.classList.remove("selected")
+    numSquares = 6
+    colors = generateRandomColors(numSquares)
+    pickedColor = randomColor()
+    colorDisplay.textContent = pickedColor
+
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].style.background = colors[i]
+        squares[i].style.display = 'block'
+    }
+})
+
 resetGame.addEventListener("click", ()=> {
-    colors = generateRandomColors(6)
+    colors = generateRandomColors(numSquares) //
     pickedColor = randomColor()
     colorDisplay.textContent = pickedColor
     resetGame.textContent = "New Colors"
